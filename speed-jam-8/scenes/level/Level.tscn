@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=7 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
 [ext_resource type="PackedScene" uid="uid://c78k6ot6bm2li" path="res://scenes/platform/platform.tscn" id="2_bnhfd"]
+[ext_resource type="PackedScene" uid="uid://bp4owvolbu3ih" path="res://scenes/platform/moving_platform.tscn" id="4_2yesx"]
 [ext_resource type="Script" path="res://scenes/level/timer.gd" id="5_xumvl"]
 
 [sub_resource type="GDScript" id="GDScript_xaols"]
@@ -52,12 +53,13 @@ script = SubResource("GDScript_xaols")
 
 [node name="Platforms" type="Node" parent="."]
 
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource("4_2yesx")]
+position = Vector2(588, -26)
+amp = 102.315
+freq = 1.07
+
 [node name="Platform1" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(-12, 156)
-
-[node name="Platform2" parent="Platforms" instance=ExtResource("2_bnhfd")]
-position = Vector2(663, -17)
-scale = Vector2(0.67, 1)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(1095, 48)
