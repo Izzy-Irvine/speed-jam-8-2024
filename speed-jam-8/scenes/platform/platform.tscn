@@ -8,7 +8,7 @@ gradient = SubResource("Gradient_np2gl")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbxog"]
 size = Vector2(640, 64)
 
-[node name="Platform" type="Node2D"]
+[node name="Platform" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 1)
