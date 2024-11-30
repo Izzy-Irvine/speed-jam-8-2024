@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c78k6ot6bm2li"]
+[gd_scene load_steps=5 format=3 uid="uid://c78k6ot6bm2li"]
+
+[ext_resource type="Script" path="res://scenes/platform/platform.gd" id="1_w66i3"]
 
 [sub_resource type="Gradient" id="Gradient_np2gl"]
 
@@ -9,6 +11,7 @@ gradient = SubResource("Gradient_np2gl")
 size = Vector2(640, 64)
 
 [node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_w66i3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 1)
