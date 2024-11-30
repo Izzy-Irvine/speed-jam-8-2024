@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=7 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
 [ext_resource type="PackedScene" uid="uid://c78k6ot6bm2li" path="res://scenes/platform/platform.tscn" id="2_bnhfd"]
-[ext_resource type="Texture2D" uid="uid://h3eckupbx20o" path="res://scenes/level/background/1.png" id="5_dulmk"]
+[ext_resource type="PackedScene" uid="uid://bp4owvolbu3ih" path="res://scenes/platform/moving_platform.tscn" id="4_2yesx"]
 [ext_resource type="Script" path="res://scenes/level/timer.gd" id="5_xumvl"]
-[ext_resource type="Texture2D" uid="uid://nxo5ppqxq7c8" path="res://scenes/level/background/2.png" id="6_8mr7w"]
 
 [sub_resource type="GDScript" id="GDScript_xaols"]
 script/source = "extends Camera2D
@@ -31,19 +30,7 @@ script = ExtResource("1_1hwvt")
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0, 0)
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-offset_right = 480.0
-offset_bottom = 180.0
-scale = Vector2(3.6, 3.6)
-texture = ExtResource("5_dulmk")
-
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(3.6, 3.6)
-texture = ExtResource("6_8mr7w")
 
 [node name="Node" type="Node" parent="ParallaxBackground"]
 
@@ -79,6 +66,11 @@ script = SubResource("GDScript_xaols")
 
 [node name="Platforms" type="Node" parent="."]
 
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource("4_2yesx")]
+position = Vector2(588, -26)
+amp = 102.315
+freq = 1.07
+
 [node name="Platform1" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(340, 569)
 
@@ -87,5 +79,5 @@ position = Vector2(946, 460)
 scale = Vector2(0.67, 1)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("2_bnhfd")]
-position = Vector2(1361, 325)
+position = Vector2(1126, 215)
 scale = Vector2(0.4489, 1)
