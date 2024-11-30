@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxnp5bowin02c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrn5"]
+size = Vector2(257, 249)
+
+[sub_resource type="Gradient" id="Gradient_jjye7"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cxrst"]
+gradient = SubResource("Gradient_jjye7")
+
+[node name="Player" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_hmrn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 250)
+texture = SubResource("GradientTexture1D_cxrst")
