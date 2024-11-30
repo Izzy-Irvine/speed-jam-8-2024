@@ -25,6 +25,15 @@ func _process(delta: float) -> void:
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1hwvt")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Node" type="Node" parent="ParallaxBackground"]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(74.03, 15.475)
 transform = Transform2D(1, 0, 0, 1, 74.03, 15.475)
@@ -39,16 +48,20 @@ text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
 [node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(21, -32)
+position = Vector2(597, 293)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-21, 32)
+limit_left = 0
+limit_bottom = 650
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.75
 drag_top_margin = 0.5
 drag_right_margin = 0.0
+drag_bottom_margin = 0.5
+editor_draw_drag_margin = true
 script = SubResource("GDScript_xaols")
 
 [node name="Platforms" type="Node" parent="."]
@@ -59,8 +72,12 @@ amp = 102.315
 freq = 1.07
 
 [node name="Platform1" parent="Platforms" instance=ExtResource("2_bnhfd")]
-position = Vector2(-12, 156)
+position = Vector2(340, 569)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("2_bnhfd")]
+position = Vector2(946, 460)
+scale = Vector2(0.67, 1)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("2_bnhfd")]
-position = Vector2(1095, 48)
+position = Vector2(1126, 215)
 scale = Vector2(0.4489, 1)
