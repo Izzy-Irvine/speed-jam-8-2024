@@ -29,3 +29,11 @@ offset_bottom = 262.525
 theme_override_font_sizes/font_size = 56
 text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
+
+[node name="Platform2" parent="." instance=ExtResource("2_bnhfd")]
+position = Vector2(663, -17)
+scale = Vector2(0.67, 1)
+
+[node name="Platform3" parent="." instance=ExtResource("2_bnhfd")]
+position = Vector2(1095, 48)
+scale = Vector2(0.4489, 1)
