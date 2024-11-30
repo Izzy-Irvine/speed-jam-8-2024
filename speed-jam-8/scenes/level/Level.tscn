@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=5 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
 [ext_resource type="PackedScene" uid="uid://c78k6ot6bm2li" path="res://scenes/platform/platform.tscn" id="2_bnhfd"]
+[ext_resource type="Script" path="res://scenes/level/timer.gd" id="5_xumvl"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1hwvt")
@@ -15,3 +16,16 @@ position = Vector2(-21, 32)
 
 [node name="Platform1" parent="." instance=ExtResource("2_bnhfd")]
 position = Vector2(-12, 156)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(74.03, 15.475)
+transform = Transform2D(1, 0, 0, 1, 74.03, 15.475)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = -55.03
+offset_top = 2.525
+offset_right = 342.97
+offset_bottom = 262.525
+theme_override_font_sizes/font_size = 56
+text = "TIMER TEXT"
+script = ExtResource("5_xumvl")
