@@ -15,9 +15,9 @@ gradient = SubResource("Gradient_jjye7")
 script = ExtResource("1_vvn2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+scale = Vector2(0.355, 0.625)
 shape = SubResource("RectangleShape2D_hmrn5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 250)
+scale = Vector2(0.355, 157.515)
 texture = SubResource("GradientTexture1D_cxrst")
