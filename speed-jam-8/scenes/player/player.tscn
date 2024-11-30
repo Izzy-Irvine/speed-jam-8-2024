@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxnp5bowin02c"]
+[gd_scene load_steps=5 format=3 uid="uid://cxnp5bowin02c"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_vvn2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmrn5"]
 size = Vector2(257, 249)
@@ -9,7 +11,8 @@ colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_cxrst"]
 gradient = SubResource("Gradient_jjye7")
 
-[node name="Player" type="Node2D"]
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_vvn2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
