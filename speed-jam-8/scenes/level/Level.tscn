@@ -1,21 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=6 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
 [ext_resource type="PackedScene" uid="uid://c78k6ot6bm2li" path="res://scenes/platform/platform.tscn" id="2_bnhfd"]
 [ext_resource type="Script" path="res://scenes/level/timer.gd" id="5_xumvl"]
 
+[sub_resource type="GDScript" id="GDScript_xaols"]
+script/source = "extends Camera2D
+
+var speed = Vector2()
+var momentum = Vector2()
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1hwvt")
-
-[node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(21, -32)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-21, 32)
-
-[node name="Platform1" parent="." instance=ExtResource("2_bnhfd")]
-position = Vector2(-12, 156)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(74.03, 15.475)
@@ -30,10 +37,28 @@ theme_override_font_sizes/font_size = 56
 text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
-[node name="Platform2" parent="." instance=ExtResource("2_bnhfd")]
+[node name="Player" parent="." instance=ExtResource("1_h0srt")]
+position = Vector2(21, -32)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-21, 32)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.75
+drag_top_margin = 0.5
+drag_right_margin = 0.0
+script = SubResource("GDScript_xaols")
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("2_bnhfd")]
+position = Vector2(-12, 156)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(663, -17)
 scale = Vector2(0.67, 1)
 
-[node name="Platform3" parent="." instance=ExtResource("2_bnhfd")]
+[node name="Platform3" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(1095, 48)
 scale = Vector2(0.4489, 1)
