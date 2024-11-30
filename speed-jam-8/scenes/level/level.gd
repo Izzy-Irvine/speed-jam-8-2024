@@ -11,16 +11,15 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("ui_undo"):
+	if Input.is_action_pressed("ui_undo") and len(undo_stack):
 		set_state(undo_stack.pop_back())
 	else:
 		undo_stack.append(get_state())
 
 func get_state() -> Dictionary:
 	return {
-		#"Player": $Player.get_state() # Waiting for player to implement
+		"Player": $Player.get_state() # Waiting for player to implement
 	}
 
 func set_state(state: Dictionary):
-	pass
-	#$Player.set_state(state["Player"])
+	$Player.set_state(state["Player"])

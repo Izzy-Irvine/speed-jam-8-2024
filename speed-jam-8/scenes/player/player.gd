@@ -25,11 +25,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func get_state():
-    return {
-        "transform": transform,
-        "velocity": velocity
-    }
+	return {
+		"transform": transform,
+		"velocity": velocity
+	}
 
 func set_state(state: Dictionary):
-    transform = state["transform"]
-    velocity = state["velocity"]
+	transform = state["transform"]
+	velocity = state["velocity"]
