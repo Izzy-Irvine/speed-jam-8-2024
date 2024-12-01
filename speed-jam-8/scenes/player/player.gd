@@ -6,9 +6,15 @@ const JUMP_VELOCITY = -1000.0
 
 
 func _physics_process(delta: float) -> void:
+	collision_layer
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		for i in get_slide_collision_count():
+			if get_slide_collision(i).get_collider().name == "EndPlatform":
+				print("ended at: ", Globals.time_elapsed)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -23,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
 
 func get_state():
 	return {
