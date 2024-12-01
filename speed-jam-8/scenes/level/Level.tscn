@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 "
 
 [node name="Level" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_1hwvt")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -48,7 +49,7 @@ text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
 [node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(597, 293)
+position = Vector2(210, 369)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-21, 32)
@@ -66,11 +67,6 @@ script = SubResource("GDScript_xaols")
 
 [node name="Platforms" type="Node" parent="."]
 
-[node name="MovingPlatform" parent="Platforms" instance=ExtResource("4_2yesx")]
-position = Vector2(588, -26)
-amp = 102.315
-freq = 1.07
-
 [node name="Platform1" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(340, 569)
 
@@ -79,5 +75,22 @@ position = Vector2(946, 460)
 scale = Vector2(0.67, 1)
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("2_bnhfd")]
-position = Vector2(1126, 215)
+position = Vector2(1135, 295)
 scale = Vector2(0.4489, 1)
+
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource("4_2yesx")]
+position = Vector2(1902, 280)
+amp = 102.315
+freq = 0.095
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("2_bnhfd")]
+position = Vector2(2856, 164)
+
+[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("4_2yesx")]
+position = Vector2(2945, 312)
+scale = Vector2(0.725, 1)
+amp = 150.0
+freq = 0.03
+
+[node name="Platform5" parent="Platforms" instance=ExtResource("2_bnhfd")]
+position = Vector2(3969, 220)
