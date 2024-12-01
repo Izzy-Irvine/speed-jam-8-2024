@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=8 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
 [ext_resource type="PackedScene" uid="uid://c78k6ot6bm2li" path="res://scenes/platform/platform.tscn" id="2_bnhfd"]
-[ext_resource type="PackedScene" uid="uid://bp4owvolbu3ih" path="res://scenes/platform/moving_platform.tscn" id="4_2yesx"]
+[ext_resource type="FontFile" uid="uid://85mah8b2vf1e" path="res://scenes/level/ui/font.fnt" id="2_fu36d"]
+[ext_resource type="PackedScene" path="res://scenes/platform/moving_platform.tscn" id="4_2yesx"]
 [ext_resource type="Script" path="res://scenes/level/timer.gd" id="5_xumvl"]
 
 [sub_resource type="GDScript" id="GDScript_xaols"]
@@ -40,10 +41,12 @@ offset = Vector2(74.03, 15.475)
 transform = Transform2D(1, 0, 0, 1, 74.03, 15.475)
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+texture_filter = 1
 offset_left = -55.03
 offset_top = 2.525
 offset_right = 342.97
 offset_bottom = 262.525
+theme_override_fonts/font = ExtResource("2_fu36d")
 theme_override_font_sizes/font_size = 56
 text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
