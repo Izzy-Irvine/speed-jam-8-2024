@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg6d1yn68nsbn"]
+
+[ext_resource type="Texture2D" uid="uid://cnwqvd85hvnuh" path="res://scenes/platform/platform.png" id="1_5evew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tphxx"]
+size = Vector2(42.6667, 64)
+
+[node name="PlatformMedium" type="StaticBody2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_left = -64.0
+offset_top = -32.0
+offset_right = -32.0
+offset_bottom = 32.0
+scale = Vector2(4, 1)
+texture = ExtResource("1_5evew")
+patch_margin_left = 16
+patch_margin_right = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_tphxx")
