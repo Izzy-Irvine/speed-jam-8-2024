@@ -63,7 +63,7 @@ text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
 [node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(7148, 439)
+position = Vector2(105, 331)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-21, 32)
@@ -116,7 +116,7 @@ position = Vector2(3025, 401)
 position = Vector2(3012, 286)
 
 [node name="PlatformLarge5" parent="Platforms" instance=ExtResource("8_cwrvc")]
-position = Vector2(3703, 300)
+position = Vector2(3676, 300)
 
 [node name="PlatformLarge6" parent="Platforms" instance=ExtResource("8_cwrvc")]
 position = Vector2(4066, 172)
