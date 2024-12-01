@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=13 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
@@ -26,6 +26,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ojgo"]
+font = ExtResource("2_fu36d")
 
 [node name="Level" type="Node2D"]
 texture_filter = 1
@@ -60,12 +63,11 @@ text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
 [node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(210, 369)
+position = Vector2(7148, 439)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-21, 32)
 limit_left = 0
-limit_bottom = 650
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -91,8 +93,76 @@ position = Vector2(1344, 416)
 amp = 128.0
 freq = 0.1
 
-[node name="PlatformSmall2" parent="Platforms/MovingPlatform" instance=ExtResource("7_kahy1")]
-position = Vector2(1664, 416)
+[node name="PlatformLarge3" parent="Platforms/MovingPlatform" instance=ExtResource("8_cwrvc")]
+position = Vector2(1862, 470)
 
 [node name="EndPlatform" parent="Platforms" instance=ExtResource("6_phe3b")]
-position = Vector2(2253, 408)
+position = Vector2(7935, 555)
+
+[node name="PlatformLarge4" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(2300, 541)
+
+[node name="PlatformSmall2" parent="Platforms" instance=ExtResource("7_kahy1")]
+position = Vector2(2632, 459)
+
+[node name="MovingPlatform2" parent="Platforms" instance=ExtResource("4_2yesx")]
+amp = 128.0
+freq = 0.1
+
+[node name="PlatformLarge5" parent="Platforms/MovingPlatform2" instance=ExtResource("8_cwrvc")]
+position = Vector2(3025, 401)
+
+[node name="PlatformSmall3" parent="Platforms" instance=ExtResource("7_kahy1")]
+position = Vector2(3012, 286)
+
+[node name="PlatformLarge5" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(3703, 300)
+
+[node name="PlatformLarge6" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(4066, 172)
+
+[node name="PlatformLarge7" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(4622, 739)
+
+[node name="PlatformLarge8" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(4622, 739)
+
+[node name="PlatformLarge9" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(5435, 529)
+
+[node name="PlatformLarge10" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(5811, 757)
+
+[node name="PlatformLarge11" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(6033, 610)
+
+[node name="PlatformLarge12" parent="Platforms" instance=ExtResource("8_cwrvc")]
+position = Vector2(7174, 547)
+
+[node name="Label" type="Label" parent="Platforms"]
+offset_left = 4200.0
+offset_top = 14.0
+offset_right = 4687.0
+offset_bottom = 37.0
+text = "Leap of fath lol"
+label_settings = SubResource("LabelSettings_3ojgo")
+
+[node name="MovingPlatform3" parent="Platforms" instance=ExtResource("4_2yesx")]
+amp = 128.0
+freq = 0.1
+
+[node name="PlatformSmall4" parent="Platforms/MovingPlatform3" instance=ExtResource("7_kahy1")]
+position = Vector2(5000, 618)
+
+[node name="MovingPlatform4" parent="Platforms" instance=ExtResource("4_2yesx")]
+amp = 800.0
+freq = 0.02
+
+[node name="PlatformSmall6" parent="Platforms/MovingPlatform4" instance=ExtResource("7_kahy1")]
+position = Vector2(5987, 378)
+
+[node name="PlatformSmall7" parent="Platforms/MovingPlatform4" instance=ExtResource("7_kahy1")]
+position = Vector2(5987, 315)
+
+[node name="PlatformLarge12" parent="Platforms/MovingPlatform4" instance=ExtResource("8_cwrvc")]
+position = Vector2(6051, 442)
