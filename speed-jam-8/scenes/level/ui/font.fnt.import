@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://85mah8b2vf1e"
+path="res://.godot/imported/font.fnt-c080c99669ec567770083d6ae89e3f5e.fontdata"
+
+[deps]
+
+source_file="res://scenes/level/ui/font.fnt"
+dest_files=["res://.godot/imported/font.fnt-c080c99669ec567770083d6ae89e3f5e.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=1
