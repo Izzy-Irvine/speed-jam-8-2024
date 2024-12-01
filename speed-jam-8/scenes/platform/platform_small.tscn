@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tphxx"]
 size = Vector2(42.6667, 64)
 
-[node name="PlatformMedium" type="StaticBody2D"]
+[node name="PlatformSmall" type="StaticBody2D"]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
