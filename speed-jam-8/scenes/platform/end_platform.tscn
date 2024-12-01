@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://yxrpoqn1m7cc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbxog"]
+size = Vector2(640, 64)
+
+[sub_resource type="Gradient" id="Gradient_np2gl"]
+offsets = PackedFloat32Array(0, 0.560241, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.951807, 0.951807, 1, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bgcud"]
+gradient = SubResource("Gradient_np2gl")
+
+[node name="Platform" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dbxog")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 1)
+texture = SubResource("GradientTexture2D_bgcud")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -379.0
+offset_top = -26.0
+offset_right = -185.0
+offset_bottom = 14.0
+bbcode_enabled = true
+text = "[center]Finish[/center]"

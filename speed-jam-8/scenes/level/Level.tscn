@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=8 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
 [ext_resource type="PackedScene" uid="uid://c78k6ot6bm2li" path="res://scenes/platform/platform.tscn" id="2_bnhfd"]
 [ext_resource type="PackedScene" uid="uid://bp4owvolbu3ih" path="res://scenes/platform/moving_platform.tscn" id="4_2yesx"]
 [ext_resource type="Script" path="res://scenes/level/timer.gd" id="5_xumvl"]
+[ext_resource type="PackedScene" uid="uid://yxrpoqn1m7cc" path="res://scenes/platform/end_platform.tscn" id="6_phe3b"]
 
 [sub_resource type="GDScript" id="GDScript_xaols"]
 script/source = "extends Camera2D
@@ -94,3 +95,6 @@ freq = 0.03
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("2_bnhfd")]
 position = Vector2(3969, 220)
+
+[node name="EndPlatform" parent="Platforms" instance=ExtResource("6_phe3b")]
+position = Vector2(4833, 227)
