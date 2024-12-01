@@ -4,7 +4,7 @@ var undo_stack = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,8 +18,10 @@ func _physics_process(delta: float) -> void:
 
 func get_state() -> Dictionary:
 	return {
-		"Player": $Player.get_state() # Waiting for player to implement
+		"Player": $Player.get_state(),
+		"Tick": Globals.ticks
 	}
 
 func set_state(state: Dictionary):
 	$Player.set_state(state["Player"])
+	Globals.ticks = state["Tick"]
