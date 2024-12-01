@@ -11,6 +11,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		for i in get_slide_collision_count():
+			if get_slide_collision(i).get_collider().name == "EndPlatform":
+				print("ended at: ", Globals.time_elapsed)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -26,9 +30,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	for i in get_slide_collision_count():
-		if get_slide_collision(i).get_collider().name == "EndPlatform":
-			print("Game Over!")
 
 func get_state():
 	return {

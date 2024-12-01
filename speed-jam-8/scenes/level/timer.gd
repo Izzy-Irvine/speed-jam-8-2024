@@ -11,7 +11,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	now = Time.get_unix_time_from_system()
-	var time_elapsed = now - start
-	text = "Time: %.3f" % (time_elapsed)
-	
-	
+	Globals.time_elapsed = now - start
+	text = "Time: %.3f" % (Globals.time_elapsed)
