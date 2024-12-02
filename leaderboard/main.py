@@ -76,7 +76,7 @@ def submit():
 def top_ten():
     conn = get_db_conn()
     records = get_top_ten(conn)
-    return cors_response(jsonify({record[0]: record[1] for record in records}))
+    return cors_response(jsonify([(record[0], record[1]) for record in records]))
 
 @app.route("/time", methods=["GET"])
 def time():
