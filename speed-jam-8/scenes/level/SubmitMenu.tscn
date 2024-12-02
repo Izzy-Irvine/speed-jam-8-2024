@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhqoj2nlxi5ur"]
+
+[ext_resource type="Script" path="res://scenes/level/submit_menu.gd" id="1_3h5nn"]
+
+[node name="SubmitMenu" type="Window"]
+initial_position = 1
+size = Vector2i(385, 270)
+script = ExtResource("1_3h5nn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.615
+offset_top = -71.9
+offset_right = 176.385
+offset_bottom = 60.1
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.925, 0.925)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enter your login or create new credentials."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="username" type="VFlowContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/username"]
+layout_mode = 2
+text = "Username"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/username"]
+layout_mode = 2
+placeholder_text = "enter username"
+expand_to_text_length = true
+
+[node name="password" type="VFlowContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/password"]
+layout_mode = 2
+text = "Password"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/password"]
+layout_mode = 2
+placeholder_text = "enter password"
+expand_to_text_length = true
+
+[node name="SubmitButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Submit TIME"
+
+[node name="error" type="Label" parent="HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Error: "
+horizontal_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

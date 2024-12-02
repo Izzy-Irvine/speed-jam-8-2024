@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chxk0fydgtc8o"]
+[gd_scene load_steps=14 format=3 uid="uid://chxk0fydgtc8o"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1hwvt"]
 [ext_resource type="PackedScene" uid="uid://cxnp5bowin02c" path="res://scenes/player/player.tscn" id="1_h0srt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://yxrpoqn1m7cc" path="res://scenes/platform/end_platform.tscn" id="6_phe3b"]
 [ext_resource type="PackedScene" uid="uid://bg6d1yn68nsbn" path="res://scenes/platform/platform_small.tscn" id="7_kahy1"]
 [ext_resource type="PackedScene" uid="uid://dyd22fn0dun6j" path="res://scenes/platform/platform_medium.tscn" id="8_cwrvc"]
+[ext_resource type="PackedScene" uid="uid://bhqoj2nlxi5ur" path="res://scenes/level/SubmitMenu.tscn" id="11_0nxkp"]
 
 [sub_resource type="GDScript" id="GDScript_xaols"]
 script/source = "extends Camera2D
@@ -63,7 +64,7 @@ text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
 [node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(105, 331)
+position = Vector2(123, 241)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-21, 32)
@@ -166,3 +167,157 @@ position = Vector2(5987, 315)
 
 [node name="PlatformLarge12" parent="Platforms/MovingPlatform4" instance=ExtResource("8_cwrvc")]
 position = Vector2(6051, 442)
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GameOverText" type="Label" parent="GameOverScreen"]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.045
+offset_right = -9.0
+offset_bottom = -9.16003
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 186
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="GameOverScreen"]
+z_index = 365
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -123.0
+offset_right = 228.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 41
+text = "Try again"
+
+[node name="FinishScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="FinishText" type="Label" parent="FinishScreen"]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.045
+offset_left = 243.0
+offset_top = 102.0
+offset_right = -212.0
+offset_bottom = -371.16
+theme_override_colors/font_color = Color(0.989042, 0.695059, 0.98921, 1)
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 186
+text = "YOU WIN!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalTimeText" type="Label" parent="FinishScreen"]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.045
+offset_left = 123.0
+offset_top = 295.0
+offset_right = -109.0
+offset_bottom = -178.16
+theme_override_colors/font_color = Color(0.716998, 0.500204, 0.90361, 1)
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 86
+text = "Final time: PLACEHOLDER
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="FinishScreen"]
+z_index = -110
+offset_left = -99.0
+offset_top = 276.0
+offset_right = 1351.0
+offset_bottom = 500.0
+color = Color(0.988, 0.694, 0.988, 0.708)
+
+[node name="ColorRect" type="ColorRect" parent="FinishScreen/ColorRect"]
+layout_mode = 0
+offset_right = 1447.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="FinishScreen/ColorRect"]
+layout_mode = 0
+offset_top = 216.0
+offset_right = 1447.0
+offset_bottom = 224.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="FinishScreen"]
+z_index = 365
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -444.0
+offset_top = -123.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 41
+text = "Submit to leaderboard"
+
+[node name="Button2" type="Button" parent="FinishScreen"]
+z_index = 365
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -123.0
+offset_right = 461.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 41
+text = "Try again"
+
+[node name="Button3" type="Button" parent="FinishScreen"]
+z_index = 365
+texture_filter = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -305.0
+offset_top = 15.0
+offset_right = -10.0
+offset_bottom = 71.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_fu36d")
+theme_override_font_sizes/font_size = 41
+text = "Leaderboard"
+
+[node name="SubmitMenu" parent="FinishScreen" instance=ExtResource("11_0nxkp")]
+title = "Leaderboard submit"
+visible = false
+always_on_top = true
+popup_window = true
+
+[connection signal="pressed" from="GameOverScreen/Button3" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="FinishScreen/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="FinishScreen/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="FinishScreen/Button3" to="." method="_on_button_3_pressed"]
