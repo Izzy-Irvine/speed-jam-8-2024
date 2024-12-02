@@ -1,14 +1,7 @@
 extends Node2D
 
 var undo_stack = []
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var simultaneous_scene = preload("res://scenes/level/leaderboard.tscn").instantiate()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_undo") and len(undo_stack):
@@ -25,3 +18,13 @@ func get_state() -> Dictionary:
 func set_state(state: Dictionary):
 	$Player.set_state(state["Player"])
 	Globals.ticks = state["Tick"]
+
+func _on_button_pressed() -> void:
+	$FinishScreen/SubmitMenu.show()
+
+func _on_button_2_pressed() -> void:
+	get_tree().reload_current_scene()
+	Globals.game_running = true
+
+func _on_button_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level/leaderboard.tscn")
