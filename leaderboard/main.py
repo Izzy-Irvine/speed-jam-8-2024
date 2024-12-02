@@ -35,6 +35,10 @@ def make_response(resp, status):
     r.headers['Access-Control-Allow-Origin'] = '*'
     return r
 
+def cors_response(r):
+    r.headers['Access-Control-Allow-Origin'] = '*'
+    return r
+
 @app.route("/submit", methods=["POST"])
 def submit():
     try:
@@ -72,7 +76,7 @@ def submit():
 def top_ten():
     conn = get_db_conn()
     records = get_top_ten(conn)
-    return make_response(jsonify({record[0]: record[1] for record in records}), 200)
+    return cors_response(jsonify({record[0]: record[1] for record in records}))
 
 @app.route("/time", methods=["GET"])
 def time():
@@ -86,4 +90,4 @@ def time():
     if record == None:
         return make_response("Couldn't find user", 400)
 
-    return make_response(jsonify({ record[2]: record[1] }), 200)
+    return cors_response(jsonify({ record[2]: record[1] }))
