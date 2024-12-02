@@ -2,7 +2,7 @@ import json
 import logging
 import psycopg2
 import os
-from flask import Flask, request, Response
+from flask import Flask, request, Response, jsonify
 import sys
 
 app = Flask(__name__)
@@ -72,7 +72,7 @@ def submit():
 def top_ten():
     conn = get_db_conn()
     records = get_top_ten(conn)
-    return make_response({record[0]: record[1] for record in records}, 200)
+    return make_response(jsonify({record[0]: record[1] for record in records}), 200)
 
 @app.route("/time", methods=["GET"])
 def time():
@@ -86,4 +86,4 @@ def time():
     if record == None:
         return make_response("Couldn't find user", 400)
 
-    return make_response({ record[2]: record[1] }, 200)
+    return make_response(jsonify({ record[2]: record[1] }), 200)
