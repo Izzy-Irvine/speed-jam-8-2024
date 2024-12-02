@@ -2,7 +2,7 @@ import json
 import logging
 import psycopg2
 import os
-from flask import Flask, request
+from flask import Flask, request, Response
 import sys
 
 app = Flask(__name__)
@@ -30,15 +30,20 @@ def get_top_ten(conn):
     cur.execute("SELECT username, final_time FROM record ORDER BY final_time ASC LIMIT 10")
     return cur.fetchall()
 
+def make_response(resp, status):
+    r = Response(r, status)
+    r.headers['Access-Control-Allow-Origin'] = '*'
+    return r
+
 @app.route("/submit", methods=["POST"])
 def submit():
     try:
         record = json.loads(request.data)
     except Exception as e:
-        return f"Invalid json: {e}", 400
+        return make_response(f"Invalid json: {e}", 400)
 
     if not all(key in record for key in ["final_time", "username", "password"]):
-        return "Missing field", 400
+        return make_response("Missing field", 400)
 
     final_time, username, password = record["final_time"], record["username"], record["password"]
 
@@ -51,34 +56,34 @@ def submit():
         if password == db_record[3]:
             set_record_time(conn, username, final_time)
             conn.close()
-            return "Time updated!", 200
+            return make_response("Time updated!", 200)
         conn.close()
-        return "Password incorrect. (Or user already exists)", 401
+        return make_response("Password incorrect. (Or user already exists)", 401)
 
     try:
         insert_record(conn, final_time, username, password)
     except Exception as e:
-        return e, 400
+        return make_response(e, 400)
 
     conn.close()
-    return "Time submitted!", 200
+    return make_response("Time submitted!", 200)
 
 @app.route("/top_ten", methods=["GET"])
 def top_ten():
     conn = get_db_conn()
     records = get_top_ten(conn)
-    return {record[0]: record[1] for record in records}, 200
+    return make_response({record[0]: record[1] for record in records}, 200)
 
 @app.route("/time", methods=["GET"])
 def time():
     username = request.args.get("username")
     if username == None or len(username) <= 0:
-        return "Missing 'username' query parameter", 400
+        return make_response("Missing 'username' query parameter", 400)
 
     conn = get_db_conn()
 
     record = get_record(conn, username)
     if record == None:
-        return "Couldn't find user", 400
+        return make_response("Couldn't find user", 400)
 
-    return { record[2]: record[1] }, 200
+    return make_response({ record[2]: record[1] }, 200)
