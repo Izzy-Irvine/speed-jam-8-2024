@@ -22,6 +22,12 @@
           packages = with pkgs; [
             bashInteractive
             godot_4
+            (python3.withPackages (py: with py; [
+              flask
+              pip
+              gunicorn
+              psycopg2-binary
+            ]))
           ];
         };
       }

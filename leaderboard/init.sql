@@ -1,0 +1,6 @@
+CREATE TABLE record (
+  id SERIAL PRIMARY KEY,
+  final_time DOUBLE PRECISION,
+  username TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL
+);
