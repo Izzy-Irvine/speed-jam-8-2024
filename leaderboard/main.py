@@ -31,7 +31,7 @@ def get_top_ten(conn):
     return cur.fetchall()
 
 def make_response(resp, status):
-    r = Response(r, status)
+    r = Response(resp, status)
     r.headers['Access-Control-Allow-Origin'] = '*'
     return r
 
