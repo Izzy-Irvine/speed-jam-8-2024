@@ -1,0 +1,24 @@
+services:
+  leaderboard:
+    depends_on:
+      - db
+    env_file:
+      - env
+    ports:
+      - 8000:8000
+    build:
+      context: .
+
+  db:
+    image: postgres:latest
+    privileged: true
+    ports:
+      - 15432:5432
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  db-data:
