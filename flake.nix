@@ -22,6 +22,7 @@
           packages = with pkgs; [
             bashInteractive
             godot_4
+            pgadmin4-desktopmode
             (python3.withPackages (py: with py; [
               flask
               pip

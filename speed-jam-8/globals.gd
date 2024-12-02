@@ -4,7 +4,7 @@ var ticks = 0
 var time_elapsed = 0
 var final_time = null
 var game_running = true
-var leaderboard_api = "http://leaderboard.izzy.kiwi"
+var leaderboard_api = "https://leaderboard.izzy.kiwi"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

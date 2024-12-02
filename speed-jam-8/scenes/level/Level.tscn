@@ -64,7 +64,7 @@ text = "TIMER TEXT"
 script = ExtResource("5_xumvl")
 
 [node name="Player" parent="." instance=ExtResource("1_h0srt")]
-position = Vector2(123, 241)
+position = Vector2(166, 201)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-21, 32)
@@ -98,7 +98,9 @@ freq = 0.1
 position = Vector2(1862, 470)
 
 [node name="EndPlatform" parent="Platforms" instance=ExtResource("6_phe3b")]
-position = Vector2(7935, 555)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(7176, 522)
+scale = Vector2(0.395, 0.395)
 
 [node name="PlatformLarge4" parent="Platforms" instance=ExtResource("8_cwrvc")]
 position = Vector2(2300, 541)
